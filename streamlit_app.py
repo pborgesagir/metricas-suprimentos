@@ -9,11 +9,11 @@ import requests
 from io import BytesIO
 
 st.set_page_config(layout="wide")
-file_path = r"C:\Users\16144-pedro\Downloads\ANALISE-COMPRAS.xlsx"  # Path to your local Excel file
+
 st.title("MÉTRICAS - SUPRIMENTOS - AGIR")
 
 # Raw URL of the file on GitHub
-raw_github_url = 'https://raw.githubusercontent.com/your_username/your_repository/main/ANALISE-COMPRAS.xlsx'
+raw_github_url = 'https://github.com/pborgesagir/metricas-suprimentos/blob/main/ANALISE-COMPRAS.xlsx'
 
 # Fetch the content of the Excel file from GitHub
 response = requests.get(raw_github_url)
