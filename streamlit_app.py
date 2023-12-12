@@ -12,8 +12,15 @@ st.set_page_config(layout="wide")
 file_path = r"C:\Users\16144-pedro\Downloads\ANALISE-COMPRAS.xlsx"  # Path to your local Excel file
 st.title("MÉTRICAS - SUPRIMENTOS - AGIR")
 
-# Read data from the Excel file
-df = pd.read_excel(file_path, usecols=list(range(34)))
+# Raw URL of the file on GitHub
+raw_github_url = 'https://raw.githubusercontent.com/your_username/your_repository/main/ANALISE-COMPRAS.xlsx'
+
+# Fetch the content of the Excel file from GitHub
+response = requests.get(raw_github_url)
+content = response.content
+
+# Read the Excel content as a pandas DataFrame
+df = pd.read_excel(BytesIO(content), usecols=list(range(34)))
 df = df.drop_duplicates()
 
 # Convert "DATA OC" column to date
