@@ -13,14 +13,14 @@ st.set_page_config(layout="wide")
 st.title("MÉTRICAS - SUPRIMENTOS - AGIR")
 
 # Raw URL of the file on GitHub
-raw_github_url = 'https://github.com/pborgesagir/metricas-suprimentos/blob/main/ANALISE-COMPRAS.xlsx'
+raw_github_url = 'https://raw.githubusercontent.com/your_username/your_repository/main/ANALISE-COMPRAS.xlsx'
 
 # Fetch the content of the Excel file from GitHub
 response = requests.get(raw_github_url)
 content = response.content
 
-# Read the Excel content as a pandas DataFrame
-df = pd.read_excel(BytesIO(content), usecols=list(range(34)))
+# Read the Excel content as a pandas DataFrame with the specified engine
+df = pd.read_excel(BytesIO(content), usecols=list(range(34)), engine='openpyxl')  # Specify 'openpyxl' as the engine
 df = df.drop_duplicates()
 
 # Convert "DATA OC" column to date
