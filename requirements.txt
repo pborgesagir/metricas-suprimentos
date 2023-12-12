@@ -4,3 +4,4 @@ pandas
 plotly
 plotly.express
 requests
+openpyxl
